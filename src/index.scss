@@ -1,10 +1,17 @@
-@import './styles/typography.scss';
+@import "./styles/typography.scss";
+@import "./styles/colors.scss";
 
 body {
   margin: 0;
+  background-color: $bg-gray-color;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  width: 70%;
+  margin: auto;
 }

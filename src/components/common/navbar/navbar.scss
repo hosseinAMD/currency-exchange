@@ -1,0 +1,31 @@
+@import "styles/colors.scss";
+
+.navbar {
+  background-color: white;
+  margin-bottom: 1rem;
+  box-shadow: 5px 0 5px $gray-text-color;
+}
+
+.navbar__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar__items {
+  margin-left: 1rem;
+}
+
+.navbar__item {
+  display: inline-block;
+  color: $gray-text-color;
+  padding: 1rem;
+  border-bottom: solid 3px white;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 500ms;
+}
+
+.navbar__item--active {
+  border-color: $primary-color;
+}
