@@ -1,0 +1,9 @@
+@import "styles/colors.scss";
+
+.submit-button {
+  border: none;
+  background-color: $primary-color;
+  color: white;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
