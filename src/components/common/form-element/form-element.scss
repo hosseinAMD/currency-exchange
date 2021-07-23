@@ -1,0 +1,13 @@
+@import "styles/colors.scss";
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.form-element__label {
+  color: $gray-text-color;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+}
