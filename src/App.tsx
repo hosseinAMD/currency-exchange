@@ -1,5 +1,4 @@
 const App = () => {
-    return <div>Currency Exchange</div>;
+  return <div>Currency Exchange</div>;
 };
-
 export default App;
