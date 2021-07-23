@@ -1,0 +1,20 @@
+@import "./colors.scss";
+
+body {
+  font-family: "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-title {
+  font-weight: bold;
+  font-size: 4rem;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
