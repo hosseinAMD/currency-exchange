@@ -8,6 +8,7 @@ export interface ResultProps {
   targetUnitRate: string;
   fromValue: string;
   targetValue: string;
+  error?: string;
 }
 
 const Result: React.FC<ResultProps> = ({
@@ -17,7 +18,12 @@ const Result: React.FC<ResultProps> = ({
   targetUnitRate,
   fromValue,
   targetValue,
+  error = "",
 }) => {
+  if (error) {
+    return <p className="error">{error}</p>;
+  }
+
   return (
     <div className="result">
       <Equality

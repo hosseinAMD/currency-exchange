@@ -18,4 +18,5 @@ export const enStrings: Record<string, string> = {
   lowest: "Lowest",
   average: "Average",
   highest: "Highest",
+  noDataError: "No data have been sent from servers.",
 };

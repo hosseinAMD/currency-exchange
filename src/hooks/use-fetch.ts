@@ -16,9 +16,13 @@ export const useFetch = (
 
   const fetchApi = useCallback(async () => {
     setLoading(true);
+    setError("");
     axios
       .get(url)
       .then((res) => {
+        if (res.data instanceof Array && res.data.length === 0) {
+          setError(t("noDataError"));
+        }
         responseHandler(res.data);
       })
       .catch((e) => {

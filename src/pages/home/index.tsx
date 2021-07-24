@@ -36,13 +36,11 @@ const Home: React.FC = () => {
   const [loading, error, fetchApi] = useFetch(
     getPrice(convertData.from, convertData.target),
     (res) => {
-      res &&
-        res.length > 0 &&
-        setExchangeData({
-          price: res[0].price,
-          from: convertData.from,
-          target: convertData.target,
-        });
+      setExchangeData({
+        price: res[0]?.price,
+        from: convertData.from,
+        target: convertData.target,
+      });
     },
     false
   );
@@ -83,11 +81,14 @@ const Home: React.FC = () => {
             target={exchangeData.target}
             targetValue={targetValue}
             targetUnitRate={exchangeData.price}
+            error={error}
           />
-          <ExchangeHistory
-            from={exchangeData.from}
-            target={exchangeData.target}
-          />
+          {exchangeData.price && (
+            <ExchangeHistory
+              from={exchangeData.from}
+              target={exchangeData.target}
+            />
+          )}
         </Fragment>
       )}
     </div>
