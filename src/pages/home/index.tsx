@@ -2,6 +2,7 @@ import ConvertForm from "components/pages/home/convert-form";
 import Result from "components/pages/home/result";
 import { useFetch } from "hooks/use-fetch";
 import t from "i18n";
+import { ConvertResultData } from "models/ConvertResultData";
 import { FormEvent, Fragment, useState } from "react";
 import { useMemo } from "react";
 import { ChangeEvent } from "react";
@@ -10,9 +11,9 @@ import ExchangeHistory from "./exchange-history";
 
 const Home: React.FC = () => {
   const [convertData, setConvertData] = useState<Record<string, string>>({});
-  const [exchangeRate, setExchangeRate] = useState<string | undefined>(
-    undefined
-  );
+  const [exchangeData, setExchangeData] = useState<
+    ConvertResultData | undefined
+  >(undefined);
 
   const inputChangeHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -29,13 +30,19 @@ const Home: React.FC = () => {
     const newTarget = convertData.from;
     const newFrom = convertData.target;
     setConvertData((data) => ({ ...data, target: newTarget, from: newFrom }));
-    setExchangeRate(undefined);
+    setExchangeData(undefined);
   };
 
   const [loading, error, fetchApi] = useFetch(
     getPrice(convertData.from, convertData.target),
     (res) => {
-      res && res.length > 0 && setExchangeRate(res[0].price);
+      res &&
+        res.length > 0 &&
+        setExchangeData({
+          price: res[0].price,
+          from: convertData.from,
+          target: convertData.target,
+        });
     },
     false
   );
@@ -46,13 +53,13 @@ const Home: React.FC = () => {
   };
 
   const fromUnitRate = useMemo(
-    () => 1 / Number(exchangeRate),
-    [exchangeRate]
+    () => 1 / Number(exchangeData?.price),
+    [exchangeData?.price]
   ).toString();
 
   const targetValue = useMemo(
-    () => Number(exchangeRate) * Number(convertData.amount),
-    [exchangeRate, convertData.amount]
+    () => Number(exchangeData?.price) * Number(convertData.amount),
+    [exchangeData?.price, convertData.amount]
   ).toFixed(3);
 
   return (
@@ -67,19 +74,19 @@ const Home: React.FC = () => {
         onSwap={swapTargetAndFrom}
         onSubmit={convert}
       />
-      {exchangeRate && convertData.from && convertData.target && (
+      {exchangeData && convertData.from && convertData.target && (
         <Fragment>
           <Result
-            from={convertData.from}
+            from={exchangeData.from}
             fromValue={convertData.amount}
             fromUnitRate={fromUnitRate}
-            target={convertData.target}
+            target={exchangeData.target}
             targetValue={targetValue}
-            targetUnitRate={exchangeRate}
+            targetUnitRate={exchangeData.price}
           />
           <ExchangeHistory
-            from={convertData.from}
-            target={convertData.target}
+            from={exchangeData.from}
+            target={exchangeData.target}
           />
         </Fragment>
       )}
