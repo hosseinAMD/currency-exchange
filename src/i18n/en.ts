@@ -10,4 +10,12 @@ export const enStrings: Record<string, string> = {
   convert: "convert",
   homeTitle: "I want to convert",
   defaultError: "Something went wrong, Please try again!",
+  date: "Date",
+  exchangeRate: "Exchange rate",
+  statistics: "Statistics",
+  exchangeHistory: "Exchange History",
+  duration: "Duration",
+  lowest: "Lowest",
+  average: "Average",
+  highest: "Highest",
 };

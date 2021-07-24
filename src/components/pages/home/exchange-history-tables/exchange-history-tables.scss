@@ -1,0 +1,11 @@
+.exchange-history-tables {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 3rem;
+  margin: 2rem 0;
+}
+
+.stats {
+  max-height: 10rem;
+}

@@ -2,10 +2,11 @@ import ConvertForm from "components/pages/home/convert-form";
 import Result from "components/pages/home/result";
 import { useFetch } from "hooks/use-fetch";
 import t from "i18n";
-import { FormEvent, useState } from "react";
+import { FormEvent, Fragment, useState } from "react";
 import { useMemo } from "react";
 import { ChangeEvent } from "react";
 import { getPrice } from "services/convertor";
+import ExchangeHistory from "./exchange-history";
 
 const Home: React.FC = () => {
   const [convertData, setConvertData] = useState<Record<string, string>>({});
@@ -66,15 +67,21 @@ const Home: React.FC = () => {
         onSwap={swapTargetAndFrom}
         onSubmit={convert}
       />
-      {exchangeRate && (
-        <Result
-          from={convertData.from}
-          fromValue={convertData.amount}
-          fromUnitRate={fromUnitRate}
-          target={convertData.target}
-          targetValue={targetValue}
-          targetUnitRate={exchangeRate}
-        />
+      {exchangeRate && convertData.from && convertData.target && (
+        <Fragment>
+          <Result
+            from={convertData.from}
+            fromValue={convertData.amount}
+            fromUnitRate={fromUnitRate}
+            target={convertData.target}
+            targetValue={targetValue}
+            targetUnitRate={exchangeRate}
+          />
+          <ExchangeHistory
+            from={convertData.from}
+            target={convertData.target}
+          />
+        </Fragment>
       )}
     </div>
   );
