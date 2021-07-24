@@ -9,4 +9,5 @@ export const enStrings: Record<string, string> = {
   to: "To",
   convert: "convert",
   homeTitle: "I want to convert",
+  defaultError: "Something went wrong, Please try again!",
 };
