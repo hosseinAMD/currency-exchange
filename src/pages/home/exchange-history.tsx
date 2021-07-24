@@ -16,6 +16,7 @@ import ExchangeHistoryPanel from "components/pages/home/exchange-history-panel";
 import { displayTypeOptions } from "data/displayTypeOptions";
 import Table from "components/common/table";
 import ExchangeHistoryTables from "components/pages/home/exchange-history-tables";
+import ExchangeHistoryChart from "components/pages/home/exchange-history-chart";
 
 export interface ExchangeHistoryProps {
   from: string;
@@ -79,12 +80,16 @@ const ExchangeHistory: React.FC<ExchangeHistoryProps> = ({ from, target }) => {
         durationChangeHandler={selectDayHandler}
         toggleChartFlag={toggleDisplayType}
       />
-      <ExchangeHistoryTables
-        data={data}
-        lowest={min}
-        average={avg}
-        highest={max}
-      />
+      {displayType === DisplayTypes.TABLE ? (
+        <ExchangeHistoryTables
+          data={data}
+          lowest={min}
+          average={avg}
+          highest={max}
+        />
+      ) : (
+        <ExchangeHistoryChart data={data} />
+      )}
     </div>
   );
 };
