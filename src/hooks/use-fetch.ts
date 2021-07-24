@@ -5,7 +5,8 @@ import t from "i18n";
 export const useFetch = (
   url: string,
   responseHandler: (response: any) => void,
-  preLoading: boolean
+  preLoading: boolean,
+  delay?: number
 ): [boolean, string, () => void] => {
   const [loading, setLoading] = useState<boolean>(preLoading);
   const [error, setError] = useState("");
@@ -17,21 +18,23 @@ export const useFetch = (
   const fetchApi = useCallback(async () => {
     setLoading(true);
     setError("");
-    axios
-      .get(url)
-      .then((res) => {
-        if (res.data instanceof Array && res.data.length === 0) {
-          setError(t("noDataError"));
-        }
-        responseHandler(res.data);
-      })
-      .catch((e) => {
-        throwError();
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [responseHandler, url]);
+    setTimeout(() => {
+      axios
+        .get(url)
+        .then((res) => {
+          if (res.data instanceof Array && res.data.length === 0) {
+            setError(t("noDataError"));
+          }
+          responseHandler(res.data);
+        })
+        .catch((e) => {
+          throwError();
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, Number(delay));
+  }, [responseHandler, url, delay]);
 
   useEffect(() => {
     preLoading && fetchApi();
