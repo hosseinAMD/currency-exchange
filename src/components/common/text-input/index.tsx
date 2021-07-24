@@ -16,8 +16,14 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
 }) => {
   return (
-    <FormElement label={label}>
-      <input name={name} value={value} onChange={onChange} className="input" />
+    <FormElement label={label} htmlFor={name}>
+      <input
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="input"
+      />
     </FormElement>
   );
 };

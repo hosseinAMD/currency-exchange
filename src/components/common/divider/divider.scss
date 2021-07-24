@@ -1,0 +1,9 @@
+@import "styles/colors.scss";
+
+.divider {
+  height: 0.1rem;
+  width: 80%;
+  margin: 3rem auto;
+  border-radius: 10%;
+  background-color: $gray-shadow-color;
+}
