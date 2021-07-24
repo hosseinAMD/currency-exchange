@@ -6,7 +6,7 @@ export interface TextInputProps {
   name: string;
   label: string;
   value?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextInput: React.FC<TextInputProps> = ({

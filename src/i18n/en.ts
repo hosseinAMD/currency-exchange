@@ -4,4 +4,9 @@ export const enStrings: Record<string, string> = {
   currencyConvertor: "currency convertor",
   viewConversionHistory: "view conversion history",
   loading: "loading...",
+  amount: "Amount",
+  from: "From",
+  to: "To",
+  convert: "convert",
+  homeTitle: "I want to convert",
 };

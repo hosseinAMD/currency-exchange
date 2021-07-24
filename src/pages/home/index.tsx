@@ -1,10 +1,11 @@
-import IconButton from "components/common/icon-button";
+import ConvertForm from "components/pages/home/convert-form";
+import t from "i18n";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <p>Convertor</p>
-      <IconButton icon="compare_arrows" onClick={() => {}} />
+      <p className="page-title">{t("homeTitle")}</p>
+      <ConvertForm />
     </div>
   );
 };
