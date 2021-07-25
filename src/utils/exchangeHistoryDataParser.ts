@@ -9,8 +9,8 @@ interface ParserResponse {
 }
 
 export const exchangeHistoryDataParser = (serverObj: any): ParserResponse => {
-  const timesArray = serverObj.timestamps;
-  const pricesArray = serverObj.prices;
+  const timesArray = serverObj.timestamps || [];
+  const pricesArray = serverObj.prices || [];
   const parsedArray = [];
   for (let index = 0; index < timesArray.length; index++) {
     const parsedObj: ExchangeHistoryData = {
