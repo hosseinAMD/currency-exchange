@@ -9,6 +9,7 @@ const Router: React.FC = () => {
       <Switch>
         <Route path={paths.home} component={Home} exact />
         <Route path={paths.history} component={History} />
+        <Route path={paths.homeWithID} component={Home} exact />
       </Switch>
     </div>
   );

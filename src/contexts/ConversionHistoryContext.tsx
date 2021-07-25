@@ -9,6 +9,7 @@ import { getFromStorage, saveToStorage } from "utils/storage";
 export interface ConversionHistoryContextProps {
   data: Array<ConversionHistory>;
   addToHistory: (historyObj: ConversionHistory) => void;
+  getFromHistory: (uuid: string) => ConversionHistory | undefined;
   removeFromHistory: (uuid: string) => void;
 }
 
@@ -16,6 +17,7 @@ export const ConversionHistoryContext =
   createContext<ConversionHistoryContextProps>({
     data: [],
     addToHistory: () => {},
+    getFromHistory: () => undefined,
     removeFromHistory: () => {},
   });
 
@@ -26,6 +28,12 @@ const ConversionHistoryContextProvider: React.FC = ({ children }) => {
 
   const addToHistory = (historyObj: ConversionHistory) => {
     setData([...data, historyObj]);
+  };
+
+  const getFromHistory = (uuid: string) => {
+    const item = data.find((item) => item.uuid === uuid);
+    if (!item) return undefined;
+    return item;
   };
 
   const removeFromHistory = (uuid: string) => {
@@ -43,7 +51,7 @@ const ConversionHistoryContextProvider: React.FC = ({ children }) => {
 
   return (
     <ConversionHistoryContext.Provider
-      value={{ data, addToHistory, removeFromHistory }}
+      value={{ data, addToHistory, getFromHistory, removeFromHistory }}
     >
       {children}
     </ConversionHistoryContext.Provider>

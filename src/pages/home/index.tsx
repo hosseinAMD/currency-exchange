@@ -12,6 +12,12 @@ import { ChangeEvent } from "react";
 import { getPrice } from "services/convertor";
 import ExchangeHistory from "./exchange-history";
 import { v4 as uuidv4 } from "uuid";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+
+export interface HomeParams {
+  uuid?: string;
+}
 
 const Home: React.FC = () => {
   const [convertData, setConvertData] = useState<Record<string, string>>({});
@@ -19,7 +25,9 @@ const Home: React.FC = () => {
     ConvertResultData | undefined
   >(undefined);
 
-  const { addToHistory } = useContext(ConversionHistoryContext);
+  const { addToHistory, getFromHistory } = useContext(ConversionHistoryContext);
+
+  const { uuid } = useParams<HomeParams>();
 
   const inputChangeHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -59,10 +67,23 @@ const Home: React.FC = () => {
     false
   );
 
-  const convert = (event: FormEvent) => {
-    event.preventDefault();
+  const convert = (event?: FormEvent) => {
+    event && event.preventDefault();
     fetchApi();
   };
+
+  useEffect(() => {
+    if (uuid) {
+      const conversionHistoryObj = getFromHistory(uuid);
+      if (conversionHistoryObj) {
+        setConvertData({
+          from: conversionHistoryObj.from,
+          target: conversionHistoryObj.target,
+          amount: conversionHistoryObj.amount,
+        });
+      }
+    }
+  }, [uuid, getFromHistory]);
 
   const fromUnitRate = useMemo(
     () => 1 / Number(exchangeData?.price),
