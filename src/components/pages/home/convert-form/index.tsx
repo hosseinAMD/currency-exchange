@@ -1,8 +1,8 @@
+import { ChangeEvent, FormEvent } from "react";
 import IconButton from "components/common/icon-button";
 import SubmitButton from "components/common/submit-button";
 import TextInput from "components/common/text-input";
 import t from "i18n";
-import { ChangeEvent, FormEvent } from "react";
 import "./convert-button.scss";
 
 export interface ConvertFormProps {

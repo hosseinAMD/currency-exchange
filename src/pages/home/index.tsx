@@ -1,19 +1,16 @@
+import { useEffect, useMemo, useContext, ChangeEvent } from "react";
 import ConvertForm from "components/pages/home/convert-form";
 import Result from "components/pages/home/result";
 import { ConversionHistoryContext } from "contexts/ConversionHistoryContext";
 import { useFetch } from "hooks/use-fetch";
-import t from "i18n";
 import { ConversionHistory } from "models/ConversionHistory";
 import { ConvertResultData } from "models/ConvertResultData";
 import { FormEvent, Fragment, useState } from "react";
-import { useMemo } from "react";
-import { useContext } from "react";
-import { ChangeEvent } from "react";
 import { getPrice } from "services/convertor";
 import ExchangeHistory from "./exchange-history";
 import { v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import t from "i18n";
 
 export interface HomeParams {
   uuid?: string;

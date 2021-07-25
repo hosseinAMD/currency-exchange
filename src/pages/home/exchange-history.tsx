@@ -1,23 +1,18 @@
+import { useEffect, useCallback, useMemo, useState, ChangeEvent } from "react";
 import { dayOptions } from "data/days";
 import { useFetch } from "hooks/use-fetch";
 import { ExchangeHistoryData } from "models/ExchangeHistoryData";
-import { useEffect } from "react";
-import { useCallback } from "react";
-import { useMemo } from "react";
-import { ChangeEvent, useState } from "react";
 import { getExchangeHistory } from "services/convertor";
-import { formatDate, minusDays } from "utils/date";
+import { minusDays } from "utils/date";
 import { exchangeHistoryDataParser } from "utils/exchangeHistoryDataParser";
-import t from "i18n";
 import Divider from "components/common/divider";
-import SelectInput from "components/common/select-input";
 import { DisplayTypes } from "constants/ExchangeHistoryDisplayTypes";
 import ExchangeHistoryPanel from "components/pages/home/exchange-history-panel";
 import { displayTypeOptions } from "data/displayTypeOptions";
-import Table from "components/common/table";
 import ExchangeHistoryTables from "components/pages/home/exchange-history-tables";
 import ExchangeHistoryChart from "components/pages/home/exchange-history-chart";
 import PageLoader from "components/common/page-loader";
+import t from "i18n";
 
 export interface ExchangeHistoryProps {
   from: string;

@@ -6,7 +6,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 import { formatDate } from "utils/date";
 import "./exchange-history-chart.scss";

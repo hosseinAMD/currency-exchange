@@ -1,14 +1,13 @@
+import { useContext, useMemo } from "react";
 import { ConversionHistory } from "models/ConversionHistory";
 import { formatDateTime } from "utils/date";
-import t from "i18n";
-import "./history-row.scss";
-import { useMemo } from "react";
 import ActionButton from "components/common/action-button";
 import { ActionButtonTypes } from "constants/ActionButtonTypes";
-import { useContext } from "react";
 import { ConversionHistoryContext } from "contexts/ConversionHistoryContext";
 import { useHistory } from "react-router-dom";
 import { paths } from "router/paths";
+import t from "i18n";
+import "./history-row.scss";
 
 export interface HistoryRowProps extends ConversionHistory {}
 

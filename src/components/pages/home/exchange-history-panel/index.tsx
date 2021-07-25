@@ -1,9 +1,9 @@
+import { ChangeEvent } from "react";
 import SelectInput from "components/common/select-input";
 import { Option } from "models/Option";
-import { ChangeEvent } from "react";
-import "./exchange-history-panel.scss";
-import t from "i18n";
 import RadioInput from "components/common/radio-input";
+import t from "i18n";
+import "./exchange-history-panel.scss";
 
 export interface ExchangeHistoryPanelProps {
   duration: number;
