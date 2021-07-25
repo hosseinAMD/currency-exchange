@@ -1,0 +1,18 @@
+@import "styles/colors.scss";
+
+.conversion-history-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear-history {
+  color: $warn-color;
+  background-color: $gray-shadow-color;
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}

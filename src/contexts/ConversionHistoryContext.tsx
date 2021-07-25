@@ -11,6 +11,7 @@ export interface ConversionHistoryContextProps {
   addToHistory: (historyObj: ConversionHistory) => void;
   getFromHistory: (uuid: string) => ConversionHistory | undefined;
   removeFromHistory: (uuid: string) => void;
+  clearHistory: () => void;
 }
 
 export const ConversionHistoryContext =
@@ -19,6 +20,7 @@ export const ConversionHistoryContext =
     addToHistory: () => {},
     getFromHistory: () => undefined,
     removeFromHistory: () => {},
+    clearHistory: () => {},
   });
 
 const ConversionHistoryContextProvider: React.FC = ({ children }) => {
@@ -41,6 +43,10 @@ const ConversionHistoryContextProvider: React.FC = ({ children }) => {
     setData(newData);
   };
 
+  const clearHistory = () => {
+    setData([]);
+  };
+
   const presistData = useCallback(() => {
     saveToStorage(StorageKeys.conversionHistory, data, true);
   }, [data]);
@@ -51,7 +57,13 @@ const ConversionHistoryContextProvider: React.FC = ({ children }) => {
 
   return (
     <ConversionHistoryContext.Provider
-      value={{ data, addToHistory, getFromHistory, removeFromHistory }}
+      value={{
+        data,
+        addToHistory,
+        getFromHistory,
+        removeFromHistory,
+        clearHistory,
+      }}
     >
       {children}
     </ConversionHistoryContext.Provider>

@@ -26,4 +26,5 @@ export const enStrings: Record<string, string> = {
   deleteFromHistory: "Delete from history",
   event: "Event",
   actions: "Actions",
+  clearHistory: "clear history",
 };
