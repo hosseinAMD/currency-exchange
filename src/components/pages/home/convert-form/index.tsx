@@ -30,12 +30,15 @@ const ConvertForm: React.FC<ConvertFormProps> = ({
         name="amount"
         label={t("amount")}
         value={amount}
+        type="number"
+        required
         onChange={(e) => onChange(e, "amount")}
       />
       <TextInput
         name="from"
         label={t("from")}
         value={from}
+        required
         onChange={(e) => onChange(e, "from")}
       />
       <IconButton icon="compare_arrows" onClick={onSwap} />
@@ -43,6 +46,7 @@ const ConvertForm: React.FC<ConvertFormProps> = ({
         name="target"
         label={t("to")}
         value={target}
+        required
         onChange={(e) => onChange(e, "target")}
       />
       <SubmitButton label={t("convert")} loading={loading} />

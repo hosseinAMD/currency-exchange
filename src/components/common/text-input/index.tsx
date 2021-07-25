@@ -6,12 +6,16 @@ export interface TextInputProps {
   name: string;
   label: string;
   value?: string;
+  required?: boolean;
+  type?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
   name,
   label,
+  required,
+  type,
   value = "",
   onChange,
 }) => {
@@ -21,6 +25,8 @@ const TextInput: React.FC<TextInputProps> = ({
         id={name}
         name={name}
         value={value}
+        type={type}
+        required={required}
         onChange={onChange}
         className="input"
       />
