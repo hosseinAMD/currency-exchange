@@ -11,9 +11,10 @@ export const formatDate = (date: Date) => {
   return `${day}/${month}/${year}`;
 };
 
-export const formatDateTime = (date: Date) => {
-  const dateString = formatDate(date);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
+export const formatDateTime = (date: Date | string) => {
+  const dateTime = typeof date === "string" ? new Date(date) : date;
+  const dateString = formatDate(dateTime);
+  const hours = dateTime.getHours();
+  const minutes = dateTime.getMinutes();
   return `${dateString}@ ${hours}:${minutes}`;
 };
