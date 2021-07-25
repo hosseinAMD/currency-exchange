@@ -10,3 +10,10 @@ export const formatDate = (date: Date) => {
   const year = date.getFullYear();
   return `${day}/${month}/${year}`;
 };
+
+export const formatDateTime = (date: Date) => {
+  const dateString = formatDate(date);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  return `${dateString}@ ${hours}:${minutes}`;
+};

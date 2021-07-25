@@ -1,0 +1,9 @@
+@import "styles/colors.scss";
+
+@mixin history-table-row {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0.5rem;
+  border-bottom: 1px solid $gray-shadow-color;
+}

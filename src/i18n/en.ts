@@ -20,4 +20,10 @@ export const enStrings: Record<string, string> = {
   highest: "Highest",
   noDataError: "No data have been sent from servers.",
   tryAgain: "try again",
+  conversionHistory: "Conversion History",
+  historyDescription: "Converted an amount of",
+  view: "View",
+  deleteFromHistory: "Delete from history",
+  event: "Event",
+  actions: "Actions",
 };

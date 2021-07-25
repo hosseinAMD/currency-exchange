@@ -1,0 +1,23 @@
+@import "styles/mixins.scss";
+
+.history-row {
+  @include history-table-row;
+
+  .history-row__actions {
+    opacity: 0;
+    transition: 500ms;
+  }
+
+  &:hover {
+    .history-row__actions {
+      opacity: 1;
+    }
+  }
+}
+
+.history-row__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
