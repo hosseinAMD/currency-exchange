@@ -1,5 +1,5 @@
 import { ExchangeHistoryData } from "models/ExchangeHistoryData";
-import { getAvg, getMax, getMin } from "./calculator";
+import { getAvg, getMax, getMin } from "../utils/calculator";
 
 interface ParserResponse {
   parsedArray: Array<ExchangeHistoryData>;

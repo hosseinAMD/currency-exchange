@@ -4,7 +4,7 @@ import { useFetch } from "hooks/use-fetch";
 import { ExchangeHistoryData } from "models/ExchangeHistoryData";
 import { getExchangeHistory } from "services/convertor";
 import { minusDays } from "utils/date";
-import { exchangeHistoryDataParser } from "utils/exchangeHistoryDataParser";
+import { exchangeHistoryDataParser } from "helpers/exchangeHistoryDataParser";
 import Divider from "components/common/divider";
 import { DisplayTypes } from "constants/ExchangeHistoryDisplayTypes";
 import ExchangeHistoryPanel from "components/pages/home/exchange-history-panel";
