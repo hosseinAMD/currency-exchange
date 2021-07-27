@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). `Currency Exchange` is a simple web application developed by `React` and `TypeScript`.
 
+- [x] Convert currencies
+- [x] Show exchange rates history
+- [x] Bonus: Show exchange rate in chart mode
+- [x] Show history of conversions
+- [x] Save history in case of refresh, tab closing, etc.
+
 ## Project structure and design solutions
 
 During development of this app, future changes, further features and maintenance have been considered and tried to implement different parts modular and reusable. Having in mind to keep everything simple, the infrastructure of some further possible features implemented. Such as:
@@ -31,6 +37,11 @@ Although the provided design is too similar to `Material-UI` library, but for 2 
 3.  Please consider Nomic free services does not support converting fiat currencies to each other. But crypto-crypto and crypto-fiat are okay.
 
 ## Environment variables
+
+| Variable Name           | Description               | Value                                        |
+| ----------------------- | ------------------------- | -------------------------------------------- |
+| REACT_APP_BASE_URL      | Base url of nomic service | https://api.nomics.com/v1/                   |
+| REACT_APP_NOMIC_API_KEY | API Key of nomic          | Just for code reviewing it's on the env file |
 
 ## Available Scripts
 
