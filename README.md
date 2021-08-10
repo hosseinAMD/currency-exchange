@@ -1,4 +1,4 @@
-# Currency Exchange - Payconiq
+# Currency Exchange
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). `Currency Exchange` is a simple web application developed by `React` and `TypeScript`.
 
